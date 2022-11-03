@@ -1,0 +1,132 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#fror{
+  width: 100vw;
+  height: fit-content;
+  padding: 4%;
+  position: relative; 
+  background-color: #1e1e1e;
+
+  display: flex;
+  flex-direction: column ;
+  gap: 50px;
+  overflow: hidden;
+}
+
+.for{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  background-color: #1e1e1e;
+  border-radius: 15px 0 15px 0;
+  overflow: hidden;
+}
+
+#fg, #bg {
+  width:100%;
+  height:100%;
+  color:#1e1e1e;
+  font-size:35px;
+  font-family:sans-serif;
+  overflow: hidden;
+}
+
+div {
+  position:absolute;
+}
+
+.ff{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+sub {
+  /* font-size:80px; */
+  word-break: break-word;
+  line-height: 80%;
+  writing-mode: tb-rl;
+  rotate: 180deg;
+  color: transparent;
+  font-weight: 900;
+  font-family: sans-serif;
+  -webkit-text-stroke: 1px white;
+}
+sub:hover, .sugg h1:hover{
+  cursor: default;
+}
+
+
+.sugg{
+  height: 100%;
+  width: fit-content;
+  background-color: black;
+  color: white;
+  writing-mode: tb-rl;
+  /* rotate: 90deg; */
+}
+.sugg h1{
+  font-size: 150px;
+  margin: 0;
+  padding-left: 0px;
+  word-break: break-word;
+  line-height: 85%;
+  rotate: 180deg;
+  -webkit-text-stroke: 10px white;
+  color: black;
+}
+#sull{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.md{
+  width: 100%;
+  height: 100%;
+}
+.appendclass{
+  position:absolute; width:100%; height:100%; color:#1e1e1e; font-size:35px; font-family:sans-serif; overflow: hidden;
+}
+
+#sull1, #sull2{
+  width: 100%;
+  height: 100%;
+  border-radius: 0 15px 0px 15px;
+  position: relative;
+  overflow: hidden;
+}
+.bottom {
+  width: 100%;
+  height: 30%;
+  background-color: black;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+#handlesExecutives, #handlesHeads{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0px 20px;
+  width: 70%;
+}
+i{
+  color: white;
+  font-size: 50px;
+}
+#nameHeads, #nameExecutives{
+  color: white;
+  font-size: 100px;
+  font-weight: 900;
+  width: 100%;
+  padding-left: 20px;
+}
