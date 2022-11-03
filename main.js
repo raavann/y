@@ -1,7 +1,7 @@
 let dataExec = [
   {
     img:'./1.jpg',
-    innerhtml : "<sub style='font-size:100px'>Presi-dent</sub>",
+    innerhtml : "<sub class='execdesg' style='font-size:100px'>Presi-dent</sub>",
     name : "Anurudh",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -11,7 +11,7 @@ let dataExec = [
   },
   {
     img:'./2.jpg',
-    innerhtml : "<sub style='font-size:50px'>Operations Executive</sub>",
+    innerhtml : "<sub class='execdesg' style='font-size:50px'>Operations Executive</sub>",
     name : "John",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -21,7 +21,7 @@ let dataExec = [
   },
   {
     img:'./3.jpg',
-    innerhtml : "<sub style='font-size:50px'>Marketing Executive</sub>",
+    innerhtml : "<sub class='execdesg' style='font-size:50px'>Marketing Executive</sub>",
     name : "Marry",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -34,7 +34,7 @@ let dataExec = [
 let dataHeads = [
   {
     img:'./1.jpg',
-    innerhtml : "<sub>Presi-dent</sub>",
+    innerhtml : "<sub class='headdesg'>Presi-dent</sub>",
     name : "Anurudh",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -44,7 +44,7 @@ let dataHeads = [
   },
   {
     img:'./2.jpg',
-    innerhtml : "<sub style='font-size:50px'>Operations Executive</sub>",
+    innerhtml : "<sub class='headdesg' style='font-size:50px'>Operations Executive</sub>",
     name : "John",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -54,7 +54,7 @@ let dataHeads = [
   },
   {
     img:'./3.jpg',
-    innerhtml : "<sub style='font-size:50px'>Marketing Executive</sub>",
+    innerhtml : "<sub class='headdesg' style='font-size:50px'>Marketing Executive</sub>",
     name : "Marry",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -64,7 +64,7 @@ let dataHeads = [
   },
   {
     img:'./1.jpg',
-    innerhtml : "<sub style='font-size:50px'>Presi-dent</sub>",
+    innerhtml : "<sub class='headdesg' style='font-size:50px'>Presi-dent</sub>",
     name : "Anurudh",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -74,7 +74,7 @@ let dataHeads = [
   },
   {
     img:'./2.jpg',
-    innerhtml : "<sub style='font-size:50px'>Operations Executive</sub>",
+    innerhtml : "<sub class='headdesg' style='font-size:50px'>Operations Executive</sub>",
     name : "John",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -84,7 +84,7 @@ let dataHeads = [
   },
   {
     img:'./3.jpg',
-    innerhtml : "<sub style='font-size:50px'>Marketing Executive</sub>",
+    innerhtml : "<sub class='headdesg' style='font-size:50px'>Marketing Executive</sub>",
     name : "Marry",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -101,6 +101,18 @@ let sull2 = document.getElementById('sull2');
 
 td(sull1,dataExec,'07');
 td(sull2,dataHeads,'11');
+
+document.querySelectorAll('.gradient-box').forEach( element =>{
+  element.addEventListener('mousemove', (e)=>{
+    mouseX = e.pageX - element.offsetLeft;
+    mouseY = e.pageY - element.offsetTop;
+    const midx = window.innerWidth/2;
+    const midy = window.innerHeight/2;
+    const angle = Math.atan2(midy - mouseY, midx - mouseX);
+    const angleDeg = angle* 180 / Math.PI;
+    element.style.setProperty('background', `linear-gradient(${angleDeg}deg, #262262 6.24%, #52af5d 91.17%, #48af55 91.17%)`);
+  })
+})
 
 function td(sull,data,f){
   let bg = document.createElement('div');
@@ -158,18 +170,21 @@ function td(sull,data,f){
       namehead = document.querySelector('#nameHeads'),
       nameexec = document.querySelector('#nameExecutives')
     ;
+
     if(f>10){   // if f>10 then it is for heads
-      headEmail.href = data[len-1].Handles.Email;
+      headEmail.href = "mailto:"+data[len-1].Handles.Email;
       headLinkedin.href = data[len-1].Handles.LinkedIn;
       headInstagram.href = data[len-1].Handles.Instagram;
       namehead.innerHTML = data[len-1].name;
+      // allheaddesg[len-1].classList.add('active');
     } else {
-      ExecEmail.href = data[len-1].Handles.Email;
+      ExecEmail.href = "mailto:"+data[len-1].Handles.Email;
       ExecLinkedIn.href = data[len-1].Handles.LinkedIn;
       ExecInstagram.href = data[len-1].Handles.Instagram;
       nameexec.innerHTML = data[len-1].name;
-    }
+      // allexecdesg[len-1].classList.add('active');
 
+    }
     b.onmouseenter = b.onclick = (e)=>{    
       if (Number(e.currentTarget.id.substr(3))==current) return;
       
@@ -187,18 +202,26 @@ function td(sull,data,f){
       gsap.fromTo('#bgImg'+f+current, {opacity:0}, {opacity:1, duration:0.3, ease:'power1.inOut'})
 
       if(f>10){
-        headEmail.href = data[current].Handles.Email;
+        headEmail.href = "mailto:"+data[current].Handles.Email;
         headLinkedin.href = data[current].Handles.LinkedIn;
         headInstagram.href = data[current].Handles.Instagram;
         namehead.innerHTML = data[current].name;
 
+        let allheaddesg = document.querySelectorAll('.headdesg');
+        allheaddesg.forEach((e)=>{ e.classList.remove('active') });
+        allheaddesg[current].classList.add('active');
+
       } else {
-        ExecEmail.href = data[current].Handles.Email;
+        ExecEmail.href = "mailto:"+data[current].Handles.Email;
         ExecLinkedIn.href = data[current].Handles.LinkedIn;
         ExecInstagram.href = data[current].Handles.Instagram;
         nameexec.innerHTML = data[current].name;
-      }
+
+        let allexecdesg = document.querySelectorAll('.execdesg');
+        allexecdesg.forEach((e)=>{ e.classList.remove('active') });
+        allexecdesg[current].classList.add('active');      }
     }
+
   }
 }
 

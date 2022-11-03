@@ -21,10 +21,10 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   position: relative;
   background-color: #1e1e1e;
-  border-radius: 15px 0 15px 0;
+  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -57,6 +57,7 @@ sub {
   font-weight: 900;
   font-family: sans-serif;
   -webkit-text-stroke: 1px white;
+  /* color: black; */
 }
 sub:hover, .sugg h1:hover{
   cursor: default;
@@ -139,4 +140,18 @@ i{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.gradient-box{
+  width: 100%;
+  height: 100%;
+  padding: 19px;
+  background: linear-gradient(225deg, #262262 6.24%, #52af5d 91.17%, #48af55 91.17%);
+  border-radius: 15px;
+  transition: all 1s linear;
+}
+
+.active{
+  -webkit-text-stroke : 0px !important;
+  color:black !important;
 }
