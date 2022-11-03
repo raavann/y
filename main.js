@@ -1,8 +1,8 @@
-let dataExec = dataHeads = [
+let dataExec = [
   {
     img:'./1.jpg',
     innerhtml : "<sub style='font-size:100px'>Presi-dent</sub>",
-    name : "1",
+    name : "Anurudh",
     Handles : {
       Email : "itsraavann@gmail.com",
       LinkedIn : "https://www.linkedin.com/1",
@@ -12,7 +12,7 @@ let dataExec = dataHeads = [
   {
     img:'./2.jpg',
     innerhtml : "<sub style='font-size:50px'>Operations Executive</sub>",
-    name : "John Doe2",
+    name : "John",
     Handles : {
       Email : "itsraavann@gmail.com",
       LinkedIn : "https://www.linkedin.com/2",
@@ -22,7 +22,70 @@ let dataExec = dataHeads = [
   {
     img:'./3.jpg',
     innerhtml : "<sub style='font-size:50px'>Marketing Executive</sub>",
-    name : "John Doe3",
+    name : "Marry",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/3",
+      Instagram : "https://www.instagram.com/3",
+    }  
+  }
+];
+
+let dataHeads = [
+  {
+    img:'./1.jpg',
+    innerhtml : "<sub>Presi-dent</sub>",
+    name : "Anurudh",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/1",
+      Instagram : "https://www.instagram.com/1",
+    }
+  },
+  {
+    img:'./2.jpg',
+    innerhtml : "<sub style='font-size:50px'>Operations Executive</sub>",
+    name : "John",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/2",
+      Instagram : "https://www.instagram.com/2",
+    }  
+  },
+  {
+    img:'./3.jpg',
+    innerhtml : "<sub style='font-size:50px'>Marketing Executive</sub>",
+    name : "Marry",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/3",
+      Instagram : "https://www.instagram.com/3",
+    }  
+  },
+  {
+    img:'./1.jpg',
+    innerhtml : "<sub style='font-size:50px'>Presi-dent</sub>",
+    name : "Anurudh",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/1",
+      Instagram : "https://www.instagram.com/1",
+    }
+  },
+  {
+    img:'./2.jpg',
+    innerhtml : "<sub style='font-size:50px'>Operations Executive</sub>",
+    name : "John",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/2",
+      Instagram : "https://www.instagram.com/2",
+    }  
+  },
+  {
+    img:'./3.jpg',
+    innerhtml : "<sub style='font-size:50px'>Marketing Executive</sub>",
+    name : "Marry",
     Handles : {
       Email : "itsraavann@gmail.com",
       LinkedIn : "https://www.linkedin.com/3",

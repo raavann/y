@@ -78,7 +78,7 @@ sub:hover, .sugg h1:hover{
   word-break: break-word;
   line-height: 85%;
   rotate: 180deg;
-  -webkit-text-stroke: 10px white;
+  -webkit-text-stroke: 0.5px white;
   color: black;
 }
 #sull{
@@ -129,4 +129,15 @@ i{
   font-weight: 900;
   width: 100%;
   padding-left: 20px;
+}
+
+.intro{
+  font-size: 150px;
+  font-weight: 900;
+
+  background: linear-gradient(85.48deg, #262262 6.24%, #39B54A 91.17%, #39B54A 91.17%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
 }
