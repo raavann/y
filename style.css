@@ -136,8 +136,7 @@ i{
   font-weight: 900;
 
   background: linear-gradient(85.48deg, #262262 6.24%, #39B54A 91.17%, #39B54A 91.17%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
