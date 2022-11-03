@@ -55,6 +55,7 @@ sub {
   rotate: 180deg;
   color: transparent;
   font-weight: 900;
+  font-size: 30px !important;
   font-family: sans-serif;
   -webkit-text-stroke: 1px white;
   /* color: black; */
@@ -145,13 +146,12 @@ i{
 .gradient-box{
   width: 100%;
   height: 100%;
-  padding: 19px;
+  padding: 10px;
   background: linear-gradient(225deg, #262262 6.24%, #52af5d 91.17%, #48af55 91.17%);
   border-radius: 15px;
-  transition: all 1s linear;
 }
 
 .active{
-  -webkit-text-stroke : 0px !important;
+  /* -webkit-text-stroke : 0px !important; */
   color:black !important;
 }

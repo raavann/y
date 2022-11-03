@@ -1,7 +1,7 @@
 let dataExec = [
   {
     img:'./1.jpg',
-    innerhtml : "<sub class='execdesg' style='font-size:100px'>Presi-dent</sub>",
+    innerhtml : "<sub class='execdesg' style='font-size:100px'>President</sub>",
     name : "Anurudh",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -34,7 +34,7 @@ let dataExec = [
 let dataHeads = [
   {
     img:'./1.jpg',
-    innerhtml : "<sub class='headdesg'>Presi-dent</sub>",
+    innerhtml : "<sub class='headdesg'>President</sub>",
     name : "Anurudh",
     Handles : {
       Email : "itsraavann@gmail.com",
@@ -64,7 +64,7 @@ let dataHeads = [
   },
   {
     img:'./1.jpg',
-    innerhtml : "<sub class='headdesg' style='font-size:50px'>Presi-dent</sub>",
+    innerhtml : "<sub class='headdesg' style='font-size:50px'>President</sub>",
     name : "Anurudh",
     Handles : {
       Email : "itsraavann@gmail.com",
