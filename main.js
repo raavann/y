@@ -1,3 +1,23 @@
+let headEmail = document.querySelector('#handlesHeads .email'),
+headLinkedin = document.querySelector('#handlesHeads .linkedin'),
+headInstagram = document.querySelector('#handlesHeads .instagram'),
+DesignationHeads = document.querySelector('#designationHeads'),
+namehead = document.querySelector('#nameHeads')
+
+let headEmail2 = document.querySelector('#handlesHeads2 .email'),
+headLinkedin2 = document.querySelector('#handlesHeads2 .linkedin'),
+headInstagram2 = document.querySelector('#handlesHeads2 .instagram'),
+DesignationHeads2 = document.querySelector('#designationHeads2'),
+namehead2 = document.querySelector('#nameHeads2')
+;
+
+let ExecEmail = document.querySelector('#handlesExecutives .email'),
+ExecLinkedIn = document.querySelector('#handlesExecutives .linkedin'),
+ExecInstagram = document.querySelector('#handlesExecutives .instagram'),
+DesignationExec = document.querySelector('#designationExecutives'),
+nameexec = document.querySelector('#nameExecutives')
+;
+
 let dataExec = [
   {
     img:'./1.jpg',
@@ -91,18 +111,54 @@ let dataHeads = [
       LinkedIn : "https://www.linkedin.com/3",
       Instagram : "https://www.instagram.com/3",
     }  
+  },
+  {
+    img:'./1.jpg',
+    designation : "Head of Operations",
+    name : "Anurudh",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/1",
+      Instagram : "https://www.instagram.com/1",
+    }
+  },
+  {
+    img:'./2.jpg',
+    designation : "Head of Operations",
+    name : "John",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/2",
+      Instagram : "https://www.instagram.com/2",
+    }  
+  },
+  {
+    img:'./3.jpg',
+    designation : "Head of Operations",
+    name : "Marry",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/3",
+      Instagram : "https://www.instagram.com/3",
+    }  
+  },
+  {
+    img:'./3.jpg',
+    designation : "Head of Operations",
+    name : "Marry",
+    Handles : {
+      Email : "itsraavann@gmail.com",
+      LinkedIn : "https://www.linkedin.com/3",
+      Instagram : "https://www.instagram.com/3",
+    }  
   }
 ];
 
-// let imagesH = ['./1.jpg','./2.jpg','./3.jpg','./1.jpg','./2.jpg','./3.jpg','./1.jpg','./2.jpg','./3.jpg','./1.jpg','./2.jpg','./3.jpg']
+let slider1 = document.getElementById('slider1');   //slider in executives
+let slider2 = document.getElementById('slider2');   //slider1 in heads
+let slider22 = document.getElementById('slider22');  //slider2 in heads
 
-let sull1 = document.getElementById('sull1');
-let sull2 = document.getElementById('sull2');
-
-td(sull1,dataExec,'10');
-td(sull2,dataHeads,'11');
-
-document.querySelectorAll('.gradient-box').forEach( element =>{
+document.querySelectorAll('.gradient-hover').forEach( element =>{
   element.addEventListener('mousemove', (e)=>{
     mouseX = e.pageX - element.offsetLeft;
     mouseY = e.pageY - element.offsetTop;
@@ -110,22 +166,47 @@ document.querySelectorAll('.gradient-box').forEach( element =>{
     const midy = window.innerHeight/2;
     const angle = Math.atan2(midy - mouseY, midx - mouseX);
     const angleDeg = angle* 180 / Math.PI;
+
     element.style.setProperty('background', `linear-gradient(${angleDeg}deg, #262262 6.24%, #52af5d 91.17%, #48af55 91.17%)`);
   })
 })
+document.querySelectorAll('.gradient-hover-text').forEach( element =>{
+  element.addEventListener('mousemove', (e)=>{
+    mouseX = e.pageX - element.offsetLeft;
+    mouseY = e.pageY - element.offsetTop;
+    const midx = window.innerWidth/2;
+    const midy = window.innerHeight/2;
+    const angle = Math.atan2(midy - mouseY, midx - mouseX);
+    const angleDeg = angle* 180 / Math.PI;
 
-function td(sull,data,f){
+    element.style.setProperty('background', `linear-gradient(${angleDeg}deg, #262262 6.24%, #52af5d 91.17%, #48af55 91.17%)`);
+    element.style.setProperty('-webkit-background-clip', `text`);
+    element.style.setProperty('-webkit-text-fill-color', `transparent`);
+    element.style.setProperty('background-clip', `text`);
+  })
+})
+
+
+td(slider1,dataExec,'10');
+let dataHeads2 = dataHeads.splice(0,5);
+td(slider2,dataHeads,'11',false);
+td(slider22,dataHeads2,'11',two=true);
+
+
+function td(slider,data,f,two=false){
+  console.log(two, f, slider)
+  let twovar = two ? 2 : 1;
   let bg = document.createElement('div');
   let fg = document.createElement('div');
   bg.classList.add('appendclass');
   fg.classList.add('appendclass');
 
-  sull.appendChild(bg);
-  sull.appendChild(fg);
+  slider.appendChild(bg);
+  slider.appendChild(fg);
 
   let len = data.length,
     current = len-1,
-    closedWidth = Math.floor(window.innerWidth/(f>10)?sull1.offsetWidth/10 : sull2.offsetWidth/10)
+    closedWidth = Math.floor(window.innerWidth/(f>10)?50*dataExec.length : 50*dataHeads.length)
   ;
 
   for (var i=0; i<len; i++){
@@ -133,7 +214,7 @@ function td(sull,data,f){
     bg.appendChild(bgImg);
 
     gsap.set(bgImg, {
-      attr:{id:'bgImg'+f+i, class:'bgImg'+f},
+      attr:{id:'bgImg'+twovar+f+i, class:'bgImg'+twovar+f},
       width:'100%',
       height:'100%',
       backgroundImage:'url('+data[i].img+')',
@@ -144,9 +225,16 @@ function td(sull,data,f){
     var b = document.createElement('div');
     fg.appendChild(b); 
 
+    let inhtmlclass='';
+    if(f > 10){
+      if(two){ inhtmlclass = 'headdesg2' }
+      else { inhtmlclass = 'headdesg' }
+    }else{
+      inhtmlclass='execdesg';
+    }
     gsap.fromTo(b, {
-      attr:{id:'b'+f+i, class:'box'+f},
-      innerHTML:`<sub class=${(f>10)?"headdesg":"execdesg"}>${data[i].designation}</sub>`,
+      attr:{id:'b'+twovar+f+i, class:'box'+twovar+f},
+      innerHTML:`<sub class=${inhtmlclass}>${data[i].designation}</sub>`,
       width:'100%',
       height:'100%',
       borderLeft:(i>0)?'solid 4px #1e1e1e':'',
@@ -160,63 +248,79 @@ function td(sull,data,f){
       ease:'expo.inOut'
     })  
 
-    let headEmail = document.querySelector('#handlesHeads .email'),
-      headLinkedin = document.querySelector('#handlesHeads .linkedin'),
-      headInstagram = document.querySelector('#handlesHeads .instagram'),
 
-      ExecEmail = document.querySelector('#handlesExecutives .email'),
-      ExecLinkedIn = document.querySelector('#handlesExecutives .linkedin'),
-      ExecInstagram = document.querySelector('#handlesExecutives .instagram'),
 
-      DesignationExec = document.querySelector('#designationExecutives'),
-      DesignationHeads = document.querySelector('#designationHeads'),
-
-      namehead = document.querySelector('#nameHeads'),
-      nameexec = document.querySelector('#nameExecutives')
-    ;
-
+    console.log("do ----" ,two)
     if(f>10){   // if f>10 then it is for heads
-      headEmail.href = "mailto:"+data[len-1].Handles.Email;
-      headLinkedin.href = data[len-1].Handles.LinkedIn;
-      headInstagram.href = data[len-1].Handles.Instagram;
-      namehead.innerHTML = data[len-1].name;
-      DesignationHeads.innerHTML = data[len-1].designation;
-      // allheaddesg[len-1].classList.add('active');
+      if(two){
+        headEmail2.href = "mailto:"+data[len-1].Handles.Email;
+        headLinkedin2.href = data[len-1].Handles.LinkedIn;
+        headInstagram2.href = data[len-1].Handles.Instagram;
+
+        namehead2.innerHTML = data[len-1].name;
+        DesignationHeads2.innerHTML = data[len-1].designation;
+        console.log('here head2')
+
+        // allheaddesg2[len-1].classList.add('active');
+      } else {
+        headEmail.href = "mailto:"+data[len-1].Handles.Email;
+        headLinkedin.href = data[len-1].Handles.LinkedIn;
+        headInstagram.href = data[len-1].Handles.Instagram;
+
+        console.log('here in head')
+        namehead.innerHTML = data[len-1].name;
+        DesignationHeads.innerHTML = data[len-1].designation;
+      }
     } else {
+      console.log('here in exec')
+
       ExecEmail.href = "mailto:"+data[len-1].Handles.Email;
       ExecLinkedIn.href = data[len-1].Handles.LinkedIn;
       ExecInstagram.href = data[len-1].Handles.Instagram;
       nameexec.innerHTML = data[len-1].name;
       DesignationExec.innerHTML = data[len-1].designation;
-      // allexecdesg[len-1].classList.add(sub'active');
-
     }
     b.onmouseenter = b.onclick = (e)=>{    
-      if (Number(e.currentTarget.id.substr(3))==current) return;
-      
-      var staggerOrder = !!(current < Number(e.currentTarget.id.substr(3)));
-      current = Number(e.currentTarget.id.substr(3));
-      gsap.to('.box'+f, {
+      if (Number(e.currentTarget.id.substr(4))==current) return;
+    
+      var staggerOrder = !!(current < Number(e.currentTarget.id.substr(4)));
+      current = Number(e.currentTarget.id.substr(4));
+
+      gsap.to('.box'+twovar+f, {
         duration:0.5,
         ease:'elastic.out(0.3)',
-        left:(i)=>(i<=current)? i*closedWidth: ((f<=10)? sull1.offsetWidth:sull2.offsetWidth) -((len-i)*closedWidth),
+        left:(i)=>(i<=current)? i*closedWidth: ((f<=10)? slider1.offsetWidth:slider2.offsetWidth) -((len-i)*closedWidth),
         x:0,
         stagger: staggerOrder? 0.05:-0.05
       })
       
-      bg.appendChild( document.getElementById('bgImg'+f+current) )
-      gsap.fromTo('#bgImg'+f+current, {opacity:0}, {opacity:1, duration:0.3, ease:'power1.inOut'})
+      bg.appendChild( document.getElementById('bgImg'+twovar+f+current) )
+      gsap.fromTo('#bgImg'+twovar+f+current, {opacity:0}, {opacity:1, duration:0.3, ease:'power1.inOut'})
 
       if(f>10){
-        headEmail.href = "mailto:"+data[current].Handles.Email;
-        headLinkedin.href = data[current].Handles.LinkedIn;
-        headInstagram.href = data[current].Handles.Instagram;
-        namehead.innerHTML = data[current].name;
-        DesignationHeads.innerHTML = data[current].designation;
-
-        let allheaddesg = document.querySelectorAll('.headdesg');
-        allheaddesg.forEach((e)=>{ e.classList.remove('active') });
-        allheaddesg[current].classList.add('active');
+        if(two){
+          headEmail2.href = "mailto:"+data[current].Handles.Email;
+          headLinkedin2.href = data[current].Handles.LinkedIn;
+          headInstagram2.href = data[current].Handles.Instagram;
+          namehead2.innerHTML = data[current].name;
+          DesignationHeads2.innerHTML = data[current].designation;
+  
+          let allheaddesg2 = document.querySelectorAll('.headdesg2');
+          allheaddesg2.forEach((e)=>{ e.classList.remove('active') });
+          console.log(current, allheaddesg2[current]);
+          allheaddesg2[current].classList.add('active');
+        } else {
+          headEmail.href = "mailto:"+data[current].Handles.Email;
+          headLinkedin.href = data[current].Handles.LinkedIn;
+          headInstagram.href = data[current].Handles.Instagram;
+          namehead.innerHTML = data[current].name;
+          DesignationHeads.innerHTML = data[current].designation;
+  
+          let allheaddesg = document.querySelectorAll('.headdesg');
+          allheaddesg.forEach((e)=>{ e.classList.remove('active') });
+          console.log(current, allheaddesg[current]);
+          allheaddesg[current].classList.add('active');
+        }
 
       } else {
         ExecEmail.href = "mailto:"+data[current].Handles.Email;
@@ -227,12 +331,9 @@ function td(sull,data,f){
 
         let allexecdesg = document.querySelectorAll('.execdesg');
         allexecdesg.forEach((e)=>{ e.classList.remove('active') });
-        allexecdesg[current].classList.add('active');      }
+        allexecdesg[current].classList.add('active');      
+      }
     }
 
   }
 }
-
-// (document.querySelectorAll('sub')).forEach((e)=>{window.fitText(e); console.log(e)})
-// console.log(fittext)
-// fitText(document.querySelector('sub'), 10000000000);
